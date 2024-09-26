@@ -56,7 +56,7 @@ class AlertController:
     @staticmethod
     def is_amount_over_100(payload):
         """Given a payload, checks if the payload is a withdrawal and has an amount over 100"""
-        return payload["type"] == "withdraw" and payload["amount"] > 100
+        return payload["type"] == "withdraw" and float(payload["amount"]) > 100
 
     @staticmethod
     def user_made_three_consecutive_withdrawals(userTransactions):
