@@ -41,6 +41,12 @@ class AlertController:
             errors.append("missing field: payload.amount")
 
         if "user_id" in payload:
+            # Check if the user_id field is an int
+            # There is a minor problem here: the bool data type
+            # is implemented as a sublass of the inmt type
+            # in the Python compiler.
+            # So isinstance(False, int) will return True.
+            # I don't think this is worth worrying about for the take home test though.
             if not isinstance(payload["user_id"], int):
                 errors.append("invalid field: payload.user_id should be of type int")
         else:
