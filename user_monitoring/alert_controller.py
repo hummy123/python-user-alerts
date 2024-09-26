@@ -72,7 +72,7 @@ class AlertController:
             # different from "withdraw", 
             # return false to indicate that the last three transactions
             # are not all withdrawals
-            for i in range(len(userTransactions) - 1, len(userTransactions - 4), -1):
+            for i in range(len(userTransactions) - 1, len(userTransactions) - 4, -1):
                 transaction = userTransactions[i]
                 if transaction["type"] != "withdraw":
                     return False
@@ -98,7 +98,7 @@ class AlertController:
 
             # Backwards iteration until three deposits counted
             # or we went through all elements
-            for i in range(len(userTransactions - 1), -1, -1):
+            for i in range(len(userTransactions) - 1, -1, -1):
                 transaction = userTransactions[i]
                 if transaction["type"] == "deposit":
                     depositsCounted += 1
