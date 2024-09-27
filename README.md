@@ -8,7 +8,7 @@ The only additions/changes are:
 
 - user_monitoring/alert_controller.py
   - This file contains a class with static methods, used to check the transaction history against alerts
-  - One might say the static methods are pure functions (they perform no IO, and mutate no variables outside the scope of the function). However, that's not really accurate as the functions mutate the variables they create.
+  - One might say the static methods are pure functions (they perform no IO, and mutate no variables outside the scope of the function). However, that's not really accurate as the function declares and mutates variables internal to the function such as arrays: it is implemented in terms of mutation, but one cannot tell this without looking into the implementation of the function.
 - user_monitoring/mock_db.py
   - This file contains a class with a mock database, implemented as a Python dict
 - user_monitoring/api.py
